@@ -1,0 +1,42 @@
+// variables
+
+// colors
+
+$prime-c: #1177ff;
+$sec-c: #333;
+$light-c: #f8f9f7;
+$secondary-c:#9daaa0;
+$success-c:#22aa44;
+$danger-c:#cc3b3b;
+$warning:#fb3;
+$info-c:#11a2b2;
+$dark-c:#0a000e;
+
+// background colors
+$btn-bg-prim-c:$prime-c;
+$btn-bg-secondary-c:$secondary-c;
+$btn-bg-success-c:$success-c;
+$btn-bg-danger-c:$danger-c;
+$btn-bg-warning-c:$warning;
+$btn-bg-info-c:$info-c;
+$btn-bg-light-c:$light-c;
+$btn-bg-dark-c:$dark-c;
+// $facebook: #
+
+
+// responsive
+
+$iPad-pro:1024px;
+$iPad:768px;
+$iPhone:375px;
+
+
+// font sizes
+
+
+$base-font-size: 16px;
+$sm_font-size: $base-font-size * 0.8;
+$lg_font-size: $base-font-size * 1.4;
+$xl_font-size: $base-font-size * 1.8;
+
+$title:$base-font-size * 2.8;

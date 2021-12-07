@@ -1,0 +1,34 @@
+@import './01-comp_variable';
+@import '02-typography';
+@import './03-comp_Buttons';
+
+// .nav-list{
+//     background-color: red;
+// }
+
+body{
+    background-color: rgb(198, 176, 221);
+}
+$Text_Position:(
+    "left":left,
+    "right":right,
+    "center":center,
+); 
+
+@each $position_name, $position_value in $Text_Position{
+    .#{$position_name}{
+        text-align: $position_value;
+    }
+}
+
+$Text-Position_Map:(
+    "left":left,
+    "right":right,
+    "center":center,
+); 
+
+@each $position_name, $position_value in $Text-Position_Map{
+    .#{$position_name}{
+        text-align: $position_value;
+    }
+}

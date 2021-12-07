@@ -1,0 +1,91 @@
+$max-ratio:2;
+$Font_sizes: (
+    "sm": $sm_font-size,
+    "lg": $lg_font-size,
+    "xl": $xl_font-size,
+);
+
+// @each $size_name, $size_value in $Font_sizes {
+//     .text{
+//         &-#{$size_name}{
+//             font-size: $size_value;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+@mixin text {
+    @each $name ,$value in Font_sizes{
+        &-#{$name}{
+            @if $name== "xl"{
+                $xl-ratio:$max-ratio;
+                font-size: $value * $xl-ratio;
+                padding: ($value * $xl-ratio/2);
+        }
+            @if $name== "lg"{
+                $lg-ratio:$max-ratio*0.75;
+                font-size: $value * $lg-ratio;
+                padding: ($value * $lg-ratio/2);
+        }
+            @if $name== "md"{
+                $md-ratio:$max-ratio*0.5;
+                font-size: $value * $md-ratio;
+                padding: ($value * $md-ratio/2);
+        }
+            @if $name== "sm"{
+                $xl-ratio:$max-ratio*0.5;
+                font-size: $value * $sm-ratio;
+                padding: ($value * $sm-ratio/2);
+        }
+    }
+    
+  }
+}
+
+.text{
+    @include text;
+}
+
+.UP{
+    text-transform: uppercase;
+}
+
+$Text-padding_Map:(
+    "tp-0_5":0.5rem,
+    "tp-1":1rem,
+    "tp-1_5":1.5rem,
+    "tp-2":2rem,
+    "tp-2_5":2.5rem,
+    "tp-3":3rem,
+);
+
+
+@each $padding_name, $padding_value in $Text-padding_Map {
+    .#{$padding_name}{
+        padding: $padding_value;
+    }
+}
+
+// Text margin
+
+$Text-Margin_Map:(
+    "tp-0_5":0.5rem,
+    "tp-1":1rem,
+    "tp-1_5":1.5rem,
+    "tp-2":2rem,
+    "tp-2_5":2.5rem,
+    "tp-3":3rem,
+    "tp-3.5":3.5rem,
+
+);
+
+@each $margin_name, $margin_value in $Text-Margin_Map {
+    .#{$margin_name}{
+        margin: $margin_value;
+    }
+}

@@ -1,0 +1,75 @@
+.btn{
+    margin: 0.25rem 0;
+    display: inline-block;
+    font-weight: 500;
+    color: $btn-bg-light-c;
+    font-family: inherit;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.37rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    box-shadow: 0 1px 2px black;
+}
+
+$Btn-Colors_Map:(
+    "prim-c": $btn-bg-prim-c,
+    "secondary-c": $btn-bg-secondary-c,
+    "success-c": $btn-bg-success-c,
+    "danger-c": $btn-bg-danger-c,
+    "warning-c": $btn-bg-warning-c,
+    "info-c": $btn-bg-info-c,
+    "light-c": $btn-bg-light-c,
+    "dark-c": $btn-bg-dark-c,
+    "link-c": $btn-bg-prim-c,
+);
+
+@mixin Btn_bg-Transition($speed: 0.5s) {
+    transition: all $speed ease;
+}
+
+@mixin Buttons {
+    @each $btn_name, $btn_value in $Btn-Colors_Map {
+        &-#{$btn_name}{
+            background-color: $btn_value;
+            @include Btn_bg-Transition();
+            @if($btn_value == $btn-bg-warning-c){
+                color: $btn-bg-dark-c;
+                @include Btn_bg-Transition();
+            }
+
+            @if($btn_name == "light-c"){
+                color: $btn-bg-dark-c;
+                @include Btn_bg-Transition();
+            }
+
+            @if$btn_name == "link-c"{
+                background-color: transparent;
+                color: $btn_value;
+                @include Btn_bg-Transition();
+            }
+
+            &:hover{
+                @include Btn_bg-Transition();
+                background-color: darken($btn_value, 10%);
+                color: $btn-bg-light-c;
+                @if $btn_name == "link-c" {
+                    background-color: transparent;
+                    color: darken($btn_value,10%);
+                    text-decoration: underline;
+                    @include Btn_bg-Transition();
+                }
+            }
+        }
+    }
+}
+
+.btn{
+    @include Buttons;
+}
